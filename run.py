@@ -31,12 +31,6 @@ class Employee:
 ryan = Employee(1, "Ryan", 22, "ryan@company.com")
 
 
-def user_action():
-    print("Add new employee or check employee details?")
-    action = input("\n")
-    return action
-    
-
 def add_new_employee():
     number = random.randint(0, 10000)
     name = input("Employee name: \n")
@@ -45,16 +39,29 @@ def add_new_employee():
 
     new_employee = Employee(number, name, age, email)
     employees.append(new_employee)
+    print(new_employee.get_employee_info())
+
+
+def get_employee(number):
+    for employee in employees:
+        if employee.number == number:
+            print(employee.get_employee_info())
 
 
 while True:
-    print("Add new employee (A) or check employee details (C)?")
+    print("""
+    Add new employee (A), check employee details (C),
+    or exit (E)?
+    """)
     answer = input("\n").lower()
     if answer == "a":
         add_new_employee()
-        break
+        continue
     elif answer == "c":
-        pass
+        num_to_check = int(input("Enter employee number: \n"))
+        get_employee(num_to_check)
+    elif answer == "e":
+        exit()
     else:
         print("Invalid input, please try again. Input A/C only.")
         continue
