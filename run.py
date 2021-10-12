@@ -32,21 +32,39 @@ ryan = Employee(1, "Ryan", 22, "ryan@company.com")
 
 
 def add_new_employee():
-    number = random.randint(0, 10000)
+    # Gives the employee details
+    number = random.randint(1000, 9999)
     name = input("Employee name: \n")
     age = input("Employee age: \n")
     email = input("Employee email: \n")
 
+    # Adds employee to list
     new_employee = Employee(number, name, age, email)
     employees.append(new_employee)
     print(new_employee.get_employee_info())
 
 
 def get_employee(number):
+    # Finds the employee
     for employee in employees:
         if employee.number == number:
             print(employee.get_employee_info())
+    
+    delete = input("Back to search (B) or delete (DEL)? \n").lower()
+    if delete == "del":
+        remove_employee(number)
 
+
+def remove_employee(number):
+    for employee in employees:
+        if employee.number == number:
+            employees.remove(employee)
+
+
+def list_employees():
+    for employee in employees:
+        print(employee.get_employee_info())
+            
 
 while True:
     print("""
@@ -62,9 +80,8 @@ while True:
         get_employee(num_to_check)
     elif answer == "e":
         exit()
+    elif answer == "all":
+        list_employees()
     else:
-        print("Invalid input, please try again. Input A/C only.")
+        print("Invalid input, please try again. Input A/C/E only.")
         continue
-
-print(employees)
-print(employees[0].get_employee_info())
