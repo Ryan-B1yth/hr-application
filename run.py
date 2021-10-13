@@ -1,5 +1,5 @@
 import random
-
+import datetime
 
 employees = []
 
@@ -15,6 +15,14 @@ class Employee:
         self.email = email
 
     """
+        Gets the current date and time.
+    """
+    def get_datetime():
+        date_time = datetime.datetime.now()
+        date_time_now = date_time.strftime("%x")
+        return date_time_now
+   
+    """
         Prints employee info in terminal.
     """
     def get_employee_info(self):
@@ -24,11 +32,9 @@ class Employee:
             Name: {self.name}
             Age: {self.age}
             Email: {self.email}
+            Date added: {Employee.get_datetime()}
             """
         )
-
-
-ryan = Employee(1, "Ryan", 22, "ryan@company.com")
 
 
 def add_new_employee():
