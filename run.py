@@ -66,7 +66,7 @@ def add_new_employee():
 
 def get_employee(number):
     employee = EMPLOYEES.find(str(number))
-    row = EMPLOYEES.row_values(employee.row)        
+    row = EMPLOYEES.row_values(employee.row)
     print(
         f"""
         Number: {row[0]}
@@ -76,10 +76,11 @@ def get_employee(number):
         Date added: {row[4]}
         """
     )
-    
+
     delete = input("Back to search (ANY KEY) or delete (DEL)? \n").lower()
     if delete == "del":
-        remove_employee(number)
+        EMPLOYEES.delete_rows(employee.row)
+
 
 
 def remove_employee(number):
@@ -89,9 +90,16 @@ def remove_employee(number):
 
 
 def list_employees():
-    for employee in SHEET:
-        print(employee.get_employee_info())
-            
+    employess_list = EMPLOYEES.get_all_values()
+    for employee in employess_list:
+        print(f"""
+        Number: {employee[0]}
+        Name: {employee[1]}
+        Age: {employee[2]}
+        Email: {employee[3]}
+        Date added: {employee[4]}
+        """)
+
 
 while True:
     print("""
