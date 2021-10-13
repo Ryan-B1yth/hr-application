@@ -15,7 +15,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hr_application')
 
 EMPLOYEES = SHEET.worksheet("hr_list")
-print(EMPLOYEES.get_all_values())
+
 
 class Employee:
     """
@@ -58,30 +58,38 @@ def add_new_employee():
     email = input("Employee email: \n")
 
     # Adds employee to list
-    new_employee = Employee(number, name, age, email)
-    employees.append(new_employee)
-    print(new_employee.get_employee_info())
+    employee_object = Employee(number, name, age, email)
+    new_employee = [number, name, age, email, Employee.get_datetime()]
+    EMPLOYEES.append_row(new_employee)
+    print(employee_object.get_employee_info())
 
 
 def get_employee(number):
-    # Finds the employee
-    for employee in employees:
-        if employee.number == number:
-            print(employee.get_employee_info())
+    employee = EMPLOYEES.find(str(number))
+    row = EMPLOYEES.row_values(employee.row)        
+    print(
+        f"""
+        Number: {row[0]}
+        Name: {row[1]}
+        Age: {row[2]}
+        Email: {row[3]}
+        Date added: {row[4]}
+        """
+    )
     
-    delete = input("Back to search (B) or delete (DEL)? \n").lower()
+    delete = input("Back to search (ANY KEY) or delete (DEL)? \n").lower()
     if delete == "del":
         remove_employee(number)
 
 
 def remove_employee(number):
-    for employee in employees:
+    for employee in SHEET:
         if employee.number == number:
-            employees.remove(employee)
+            EMPLOYEES.delete_rows(employee)
 
 
 def list_employees():
-    for employee in employees:
+    for employee in SHEET:
         print(employee.get_employee_info())
             
 
