@@ -67,7 +67,7 @@ def add_new_employee():
 def get_employee(number):
     employee = EMPLOYEES.find(str(number))
     row = EMPLOYEES.row_values(employee.row)
-    employee_object = Employee(row[0], row[1], row[2], row[4])
+    employee_object = Employee(row[0], row[1], row[2], row[3])
     print(employee_object.get_employee_info())
 
     delete = input("Back to search (ANY KEY) or delete (DEL)? \n").lower()
@@ -106,6 +106,8 @@ while True:
             get_employee(num_to_check)
         except AttributeError:
             print("Number not assigned.")
+        except ValueError:
+            print("Invalid input. Number only please.")
 
     elif answer == "e":
         exit()
