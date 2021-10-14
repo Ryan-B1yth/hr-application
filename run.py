@@ -75,7 +75,6 @@ def get_employee(number):
         EMPLOYEES.delete_rows(employee.row)
 
 
-
 def remove_employee(number):
     for employee in SHEET:
         if employee.number == number:
@@ -90,31 +89,35 @@ def list_employees():
         print(employee_object.get_employee_info())
 
 
-while True:
-    print("""
-    Add new employee: (A)
-    Check employee details: (C)
-    List all emplyees: (ALL)
-    Exit (E)
-    """)
-    answer = input("\n").lower()
-    if answer == "a":
-        add_new_employee()
-        continue
+def main():
+    while True:
+        print("""
+        Add new employee: (A)
+        Check employee details: (C)
+        List all employees: (ALL)
+        Exit (E)
+        """)
+        answer = input("\n").lower()
+        if answer == "a":
+            add_new_employee()
+            continue
 
-    elif answer == "c":
-        try:
-            num_to_check = int(input("Enter employee number: \n"))
-            get_employee(num_to_check)
-        except AttributeError:
-            print("Number not assigned.")
-        except ValueError:
-            print("Invalid input. Number only please.")
+        elif answer == "c":
+            try:
+                num_to_check = int(input("Enter employee number: \n"))
+                get_employee(num_to_check)
+            except AttributeError:
+                print("Number not assigned.")
+            except ValueError:
+                print("Invalid input. Number only please.")
 
-    elif answer == "e":
-        exit()
-    elif answer == "all":
-        list_employees()
-    else:
-        print("Invalid input, please try again.")
-        continue
+        elif answer == "e":
+            exit()
+        elif answer == "all":
+            list_employees()
+        else:
+            print("Invalid input, please try again.")
+            continue
+
+
+main()
