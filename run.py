@@ -54,7 +54,12 @@ def add_new_employee():
     # Gives the employee details
     number = random.randint(1000, 9999)
     name = input("Employee name: \n")
-    age = input("Employee age: \n")
+    while True:
+        try:
+            age = int(input("Employee age: \n"))
+            break
+        except ValueError:
+            print("Please enter a number.")
     email = input("Employee email: \n")
 
     # Adds employee to list
