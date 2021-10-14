@@ -92,8 +92,10 @@ def list_employees():
 
 while True:
     print("""
-    Add new employee (A), check employee details (C),
-    or exit (E)?
+    Add new employee: (A)
+    Check employee details: (C)
+    List all emplyees: (ALL)
+    Exit (E)
     """)
     answer = input("\n").lower()
     if answer == "a":
@@ -114,5 +116,5 @@ while True:
     elif answer == "all":
         list_employees()
     else:
-        print("Invalid input, please try again. Input A/C/E only.")
+        print("Invalid input, please try again.")
         continue
