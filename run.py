@@ -34,12 +34,12 @@ class Employee:
         date_time = datetime.datetime.now()
         date_time_now = date_time.strftime("%x")
         return date_time_now
-   
+
     """
         Prints employee info in terminal.
     """
     def get_employee_info(self):
-        print(
+        return (
             f"""
             Employee Number: {self.number}
             Name: {self.name}
@@ -67,15 +67,8 @@ def add_new_employee():
 def get_employee(number):
     employee = EMPLOYEES.find(str(number))
     row = EMPLOYEES.row_values(employee.row)
-    print(
-        f"""
-        Number: {row[0]}
-        Name: {row[1]}
-        Age: {row[2]}
-        Email: {row[3]}
-        Date added: {row[4]}
-        """
-    )
+    employee_object = Employee(row[0], row[1], row[2], row[4])
+    print(employee_object.get_employee_info())
 
     delete = input("Back to search (ANY KEY) or delete (DEL)? \n").lower()
     if delete == "del":
@@ -90,15 +83,11 @@ def remove_employee(number):
 
 
 def list_employees():
-    employess_list = EMPLOYEES.get_all_values()
-    for employee in employess_list:
-        print(f"""
-        Number: {employee[0]}
-        Name: {employee[1]}
-        Age: {employee[2]}
-        Email: {employee[3]}
-        Date added: {employee[4]}
-        """)
+    employees_list = EMPLOYEES.get_all_values()
+    for employee in employees_list:
+        employee_object = Employee(employee[0], employee[1],
+        employee[2], employee[3])
+        print(employee_object.get_employee_info())
 
 
 while True:
