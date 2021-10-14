@@ -99,9 +99,14 @@ while True:
     if answer == "a":
         add_new_employee()
         continue
+
     elif answer == "c":
-        num_to_check = int(input("Enter employee number: \n"))
-        get_employee(num_to_check)
+        try:
+            num_to_check = int(input("Enter employee number: \n"))
+            get_employee(num_to_check)
+        except AttributeError:
+            print("Number not assigned.")
+
     elif answer == "e":
         exit()
     elif answer == "all":
