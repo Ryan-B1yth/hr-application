@@ -21,11 +21,12 @@ class Employee:
     """
         Creates an instance of an Employee.
     """
-    def __init__(self, number, name, age, email):
+    def __init__(self, number, name, age, email, salary):
         self.number = number
         self.name = name
         self.age = age
         self.email = email
+        self.salary = salary
 
     """
         Gets the current date and time.
@@ -34,6 +35,20 @@ class Employee:
         date_time = datetime.datetime.now()
         date_time_now = date_time.strftime("%x")
         return date_time_now
+
+
+    def employee_salary(type_):
+        if type_ == "b":
+            salary = "£20,000"
+            return salary
+        elif type_ == "m":
+            salary = "£30,000"
+            return salary
+        elif type_ == "c":
+            salary = "£50,000"
+            return salary
+        # invalid inputs need handling
+
 
     """
         Prints employee info in terminal.
@@ -45,6 +60,7 @@ class Employee:
             Name: {self.name}
             Age: {self.age}
             Email: {self.email}
+            Salary: {Employee.employee_salary(self.salary)}
             Date added: {Employee.get_datetime()}
             """
         )
@@ -53,18 +69,28 @@ class Employee:
 def add_new_employee():
     # Gives the employee details
     number = random.randint(1000, 9999)
+    
     name = input("Employee name: \n")
+    
     while True:
         try:
             age = int(input("Employee age: \n"))
             break
         except ValueError:
             print("Please enter a number.")
+    
     email = input("Employee email: \n")
+    
+    salary_input = input("""
+    Basic (B)
+    Manager (M)
+    C Suite (C)\n""").lower()
+    # if statement and function to choose salary
+    salary = Employee.employee_salary(salary_input)
 
     # Adds employee to list
-    employee_object = Employee(number, name, age, email)
-    new_employee = [number, name, age, email, Employee.get_datetime()]
+    employee_object = Employee(number, name, age, email, salary)
+    new_employee = [number, name, age, email, salary, Employee.get_datetime()]
     EMPLOYEES.append_row(new_employee)
     print(employee_object.get_employee_info())
 
