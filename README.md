@@ -1,6 +1,6 @@
 # Company and Co - HR Application
 
-![4 size view of the website's home page]()
+![4 size view of the website's home page](assets/images/am-i-responsive.PNG)
 
 This command line program is a Python based, object oriented program that would allow for a small company to keep track of their employee's information and access specific info as and when needed. The program pushes to a Google Sheet which can be manipulated from inside the program. Data can be added, deleted, and modified. Along with this, salaries can be set using predefined boundaries or set manually. To access the [Google Sheet](https://www.google.co.uk/sheets/about/), follow the link, click 'Go to Google Sheets' and login using:
 
