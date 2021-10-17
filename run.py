@@ -37,19 +37,6 @@ class Employee:
         return date_time_now
 
 
-    def employee_salary(type_):
-        if type_ == "b":
-            salary = "£20,000"
-            return salary
-        elif type_ == "m":
-            salary = "£30,000"
-            return salary
-        elif type_ == "c":
-            salary = "£50,000"
-            return salary
-        # invalid inputs need handling
-
-
     """
         Prints employee info in terminal.
     """
@@ -60,7 +47,7 @@ class Employee:
             Name: {self.name}
             Age: {self.age}
             Email: {self.email}
-            Salary: {Employee.employee_salary(self.salary)}
+            Salary: {self.salary}
             Date added: {Employee.get_datetime()}
             """
         )
@@ -78,15 +65,10 @@ def add_new_employee():
             break
         except ValueError:
             print("Please enter a number.")
-    
+
     email = input("Employee email: \n")
-    
-    salary_input = input("""
-    Basic (B)
-    Manager (M)
-    C Suite (C)\n""").lower()
-    # if statement and function to choose salary
-    salary = Employee.employee_salary(salary_input)
+
+    salary = get_salary()
 
     # Adds employee to list
     employee_object = Employee(number, name, age, email, salary)
@@ -94,11 +76,43 @@ def add_new_employee():
     EMPLOYEES.append_row(new_employee)
     print(employee_object.get_employee_info())
 
+# def employee_salary(letter):
+#     if letter == "b":
+#         salary = "£20,000"
+#         return salary
+#     elif letter == "m":
+#         salary = "£30,000"
+#         return salary
+#     elif letter == "c":
+#         salary = "£50,000"
+#         return salary
+    # invalid inputs need handling
+
+
+def get_salary():
+    salary_input = input("""
+    Basic (B)
+    Manager (M)
+    C Suite (C)\n""").lower()
+
+    if salary_input == "b":
+        salary = "£20,000"
+        return salary
+    elif salary_input == "m":
+        salary = "£30,000"
+        return salary
+    elif salary_input == "c":
+        salary = "£50,000"
+        return salary
+    # if statement and function to choose salary
+    
+    return salary
+
 
 def get_employee(number):
     employee = EMPLOYEES.find(str(number))
     row = EMPLOYEES.row_values(employee.row)
-    employee_object = Employee(row[0], row[1], row[2], row[3])
+    employee_object = Employee(row[0], row[1], row[2], row[3], row[4])
     print(employee_object.get_employee_info())
 
     delete = input("Back to search (ANY KEY) or delete (DEL)? \n").lower()
