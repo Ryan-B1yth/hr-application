@@ -109,9 +109,31 @@ def get_employee(number):
     employee_object = Employee(row[0], row[1], row[2], row[3], row[4])
     print(employee_object.get_employee_info())
 
-    delete = input("Back to search (ANY KEY) or delete (DEL)? \n").lower()
-    if delete == "del":
+    action = input("""
+    Back to search (ANY KEY)
+    Delete (DEL)
+    Change details (C) \n
+    """).lower()
+    if action == "del":
         EMPLOYEES.delete_rows(employee.row)
+    elif action == "c":
+        change = input("""Change employee:
+        Name (N)
+        Age (A)
+        Email (E)
+        Salary (S)\n
+        """).lower()
+        if change == "n":
+            item = 2
+        elif change == "a":
+            item = 3
+        elif change == "e":
+            item = 4
+        elif change == "s":
+            item = 5
+        change_to = input("Please enter the change:\n")
+        EMPLOYEES.update_cell(int(employee.row), item, change_to)
+        print("Employee information updated successfully.")
 
 
 def remove_employee(number):
