@@ -22,7 +22,7 @@ EMPLOYEES = SHEET.worksheet("hr_list")
 
 class Employee:
     """
-        Creates an instance of an Employee.
+    Creates an instance of an Employee.
     """
     def __init__(self, number, name, age, email, salary):
         self.number = number
@@ -31,11 +31,10 @@ class Employee:
         self.email = email
         self.salary = salary
 
-
-    """
-        Prints employee info in terminal.
-    """
     def get_employee_info(self):
+        """
+        Prints employee info in terminal.
+        """
         return (
             f"""
         --------------------------------------
@@ -48,24 +47,26 @@ class Employee:
         --------------------------------------
             """
         )
-    """
-        Only show basic info during an all employees search.
-    """
+
     def get_basic_info(self):
+        """
+        Only show basic info during an all employees search.
+        """
+
         return (
             f"""
         --------------------------------------
             Employee Number: {self.number}
             Name: {self.name}
-        --------------------------------------    
+        --------------------------------------
             """
         )
 
 
-"""
-    Adds a new employee to the google sheet.
-"""
 def add_new_employee():
+    """
+    Adds a new employee to the google sheet.
+    """
     # Gives the employee details
     number = random.randint(1000, 9999)
 
@@ -91,10 +92,10 @@ def add_new_employee():
     print(employee_object.get_employee_info())
 
 
-"""
-    Sets employee salary based on input.
-"""
 def get_salary():
+    """
+    Sets employee salary based on input.
+    """
     salary_input = input("""
         Basic (B)
         Manager (M)
@@ -113,18 +114,19 @@ def get_salary():
     return salary
 
 
-"""
-    Gets the current date and time.
-"""
 def get_datetime():
+    """
+    Gets the current date and time.
+    """
     date_time = datetime.datetime.now()
     date_time_now = date_time.strftime("%x")
     return date_time_now
 
-"""
-    Finds employee information and displys in terminal.
-"""
+
 def get_employee(number):
+    """
+    Finds employee information and displys in terminal.
+    """
     employee = EMPLOYEES.find(str(number))
     row = EMPLOYEES.row_values(employee.row)
     employee_object = Employee(row[0], row[1], row[2], row[3], row[4])
@@ -156,16 +158,16 @@ def get_employee(number):
         else:
             print("Invalid input, returning to main menu.")
             return
-        change_to = input("Please enter the change:\n")                
+        change_to = input("Please enter the change:\n")
         print("Updating employee information...")
         EMPLOYEES.update_cell(int(employee.row), item, change_to)
         print("Employee information updated successfully.")
 
 
-"""
-    Removes employee info from google sheet.
-"""
 def remove_employee(number):
+    """
+    Removes employee info from google sheet.
+    """
     print("Deleting employee...")
     for employee in SHEET:
         if employee.number == number:
@@ -173,21 +175,23 @@ def remove_employee(number):
     print("Employee deleted successfully.")
 
 
-"""
+def list_employees():
+    """
     Lists all employees on google sheet using basic info function
     in Employee class.
-"""
-def list_employees():
+    """
     employees_list = EMPLOYEES.get_all_values()
     for employee in employees_list[1:]:
-        employee_object = Employee(employee[0], employee[1],
-        employee[2], employee[3], employee[4])
+        employee_object = Employee(
+            employee[0], employee[1],
+            employee[2], employee[3], employee[4])
         print(employee_object.get_basic_info())
 
-"""
-    Executes the main program.
-"""
+
 def main():
+    """
+    Executes the main program.
+    """
     print("""Welcome to Company and Co's HR program.
     Please select from the options below""")
     while True:
