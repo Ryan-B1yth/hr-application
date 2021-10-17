@@ -38,12 +38,14 @@ class Employee:
     def get_employee_info(self):
         return (
             f"""
+        --------------------------------------
             Employee Number: {self.number}
             Name: {self.name}
             Age: {self.age}
             Email: {self.email}
             Salary: £{self.salary}
             Date added: {get_datetime()}
+        --------------------------------------
             """
         )
     """
@@ -52,8 +54,10 @@ class Employee:
     def get_basic_info(self):
         return (
             f"""
+        --------------------------------------
             Employee Number: {self.number}
             Name: {self.name}
+        --------------------------------------    
             """
         )
 
@@ -92,9 +96,10 @@ def add_new_employee():
 """
 def get_salary():
     salary_input = input("""
-    Basic (B)
-    Manager (M)
-    C Suite (C)\n""").lower()
+        Basic (B)
+        Manager (M)
+        C Suite (C)
+        Manual input (ANY KEY)\n""").lower()
 
     if salary_input == "b":
         salary = "20,000"
@@ -127,10 +132,10 @@ def get_employee(number):
 
     # Actions the user can take after retrieving employee info.
     action = input("""
-    Back to search (ANY KEY)
-    Delete (DEL)
-    Change details (C) \n
-    """).lower()
+        Back to search (ANY KEY)
+        Delete (DEL)
+        Change details (C) \n
+        """).lower()
     if action == "del":
         EMPLOYEES.delete_rows(employee.row)
     elif action == "c":
@@ -148,7 +153,10 @@ def get_employee(number):
             item = 4
         elif change == "s":
             item = 5
-        change_to = input("Please enter the change:\n")
+        else:
+            print("Invalid input, returning to main menu.")
+            return
+        change_to = input("Please enter the change:\n")                
         print("Updating employee information...")
         EMPLOYEES.update_cell(int(employee.row), item, change_to)
         print("Employee information updated successfully.")
@@ -171,7 +179,7 @@ def remove_employee(number):
 """
 def list_employees():
     employees_list = EMPLOYEES.get_all_values()
-    for employee in employees_list:
+    for employee in employees_list[1:]:
         employee_object = Employee(employee[0], employee[1],
         employee[2], employee[3], employee[4])
         print(employee_object.get_basic_info())
