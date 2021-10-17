@@ -1,15 +1,53 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Company and Co - HR Application
 
-Welcome Ryan Blyth,
+![4 size view of the website's home page]()
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Description 
 
-## Reminders
+## User Experience (UX)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+### User Stories           
+- First time visitor goals:
 
+
+- Returning visitor goals
+
+
+- Frequent user goals
+
+
+- Site owner goals 
+
+## Features
+
+### Existing features
+
+### Features to be implimented
+
+- A functioning news letter where users can add their emails and receive periodic emails with new information and links users may find interesting. 
+
+## Languages Used
+
+- Python
+
+## Frameworks used
+
+- Git
+- GitHub
+
+## Testing
+
+- 
+
+  - [PEP8 Linter](http://pep8online.com/)
+  - Images
+
+
+### Known bugs
+
+## Further testing
+
+### Deployment 
 ## Creating the Heroku app
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
@@ -23,9 +61,19 @@ If you have credentials, such as in the Love Sandwiches project, you must create
 
 Connect your GitHub repository and deploy as normal.
 
-## Constraints
+- You can view the live site [here]().
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Credits 
 
------
-Happy coding!
+### Content
+- Code
+  - Code not covered in the lessons leading up to this project were researched and found on [Stack Overflow](https://stackoverflow.com/) and [W3Schools](https://www.w3schools.com/tags/default.asp).
+
+- Content
+  - All content was written and researched by the developer.
+
+### Acknowledgements
+    
+- Tutor support at Code Institute for all their support throughout.
+
+- Friends and family for viewing the site and giving feedback.
