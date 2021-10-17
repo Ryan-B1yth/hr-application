@@ -47,8 +47,16 @@ class Employee:
             Name: {self.name}
             Age: {self.age}
             Email: {self.email}
-            Salary: {self.salary}
+            Salary: £{self.salary}
             Date added: {Employee.get_datetime()}
+            """
+        )
+
+    def get_basic_info(self):
+        return (
+            f"""
+            Employee Number: {self.number}
+            Name: {self.name}
             """
         )
 
@@ -84,16 +92,14 @@ def get_salary():
     C Suite (C)\n""").lower()
 
     if salary_input == "b":
-        salary = "£20,000"
-        return salary
+        salary = "20,000"
     elif salary_input == "m":
-        salary = "£30,000"
-        return salary
+        salary = "30,000"
     elif salary_input == "c":
-        salary = "£50,000"
-        return salary
+        salary = "50,000"
+    else:
+        salary = input("Manual input: \n")
 
-    
     return salary
 
 
@@ -119,7 +125,7 @@ def list_employees():
     for employee in employees_list:
         employee_object = Employee(employee[0], employee[1],
         employee[2], employee[3], employee[4])
-        print(employee_object.get_employee_info())
+        print(employee_object.get_basic_info())
 
 
 def main():
