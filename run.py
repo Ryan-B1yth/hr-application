@@ -76,18 +76,6 @@ def add_new_employee():
     EMPLOYEES.append_row(new_employee)
     print(employee_object.get_employee_info())
 
-# def employee_salary(letter):
-#     if letter == "b":
-#         salary = "£20,000"
-#         return salary
-#     elif letter == "m":
-#         salary = "£30,000"
-#         return salary
-#     elif letter == "c":
-#         salary = "£50,000"
-#         return salary
-    # invalid inputs need handling
-
 
 def get_salary():
     salary_input = input("""
@@ -104,7 +92,7 @@ def get_salary():
     elif salary_input == "c":
         salary = "£50,000"
         return salary
-    # if statement and function to choose salary
+
     
     return salary
 
@@ -130,7 +118,7 @@ def list_employees():
     employees_list = EMPLOYEES.get_all_values()
     for employee in employees_list:
         employee_object = Employee(employee[0], employee[1],
-        employee[2], employee[3])
+        employee[2], employee[3], employee[4])
         print(employee_object.get_employee_info())
 
 
