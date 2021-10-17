@@ -79,9 +79,11 @@ def add_new_employee():
     salary = get_salary()
 
     # Adds employee to list
+    print("Adding employee...")
     employee_object = Employee(number, name, age, email, salary)
     new_employee = [number, name, age, email, salary, get_datetime()]
     EMPLOYEES.append_row(new_employee)
+    print("Employee added successfully.")
     print(employee_object.get_employee_info())
 
 
@@ -147,6 +149,7 @@ def get_employee(number):
         elif change == "s":
             item = 5
         change_to = input("Please enter the change:\n")
+        print("Updating employee information...")
         EMPLOYEES.update_cell(int(employee.row), item, change_to)
         print("Employee information updated successfully.")
 
@@ -155,9 +158,11 @@ def get_employee(number):
     Removes employee info from google sheet.
 """
 def remove_employee(number):
+    print("Deleting employee...")
     for employee in SHEET:
         if employee.number == number:
             EMPLOYEES.delete_rows(employee)
+    print("Employee deleted successfully.")
 
 
 """
@@ -175,6 +180,8 @@ def list_employees():
     Executes the main program.
 """
 def main():
+    print("""Welcome to Company and Co's HR program.
+    Please select from the options below""")
     while True:
         print("""
         Add new employee: (A)
@@ -197,6 +204,7 @@ def main():
                 print("Invalid input. Number only please.")
 
         elif answer == "e":
+            print("Exiting program. Have a nice day!")
             exit()
         elif answer == "all":
             list_employees()
