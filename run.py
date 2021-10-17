@@ -1,3 +1,6 @@
+"""
+    Imports necessary libraries.
+"""
 import random
 import datetime
 import gspread
@@ -28,14 +31,6 @@ class Employee:
         self.email = email
         self.salary = salary
 
-    """
-        Gets the current date and time.
-    """
-    def get_datetime():
-        date_time = datetime.datetime.now()
-        date_time_now = date_time.strftime("%x")
-        return date_time_now
-
 
     """
         Prints employee info in terminal.
@@ -48,7 +43,7 @@ class Employee:
             Age: {self.age}
             Email: {self.email}
             Salary: £{self.salary}
-            Date added: {Employee.get_datetime()}
+            Date added: {get_datetime()}
             """
         )
 
@@ -61,12 +56,15 @@ class Employee:
         )
 
 
+"""
+    Adds a new employee to the google sheet.
+"""
 def add_new_employee():
     # Gives the employee details
     number = random.randint(1000, 9999)
-    
+
     name = input("Employee name: \n")
-    
+
     while True:
         try:
             age = int(input("Employee age: \n"))
@@ -80,11 +78,14 @@ def add_new_employee():
 
     # Adds employee to list
     employee_object = Employee(number, name, age, email, salary)
-    new_employee = [number, name, age, email, salary, Employee.get_datetime()]
+    new_employee = [number, name, age, email, salary, get_datetime()]
     EMPLOYEES.append_row(new_employee)
     print(employee_object.get_employee_info())
 
 
+"""
+    Sets employee salary based on input.
+"""
 def get_salary():
     salary_input = input("""
     Basic (B)
@@ -103,12 +104,24 @@ def get_salary():
     return salary
 
 
+"""
+    Gets the current date and time.
+"""
+def get_datetime():
+    date_time = datetime.datetime.now()
+    date_time_now = date_time.strftime("%x")
+    return date_time_now
+
+"""
+    Finds employee information and displys in terminal.
+"""
 def get_employee(number):
     employee = EMPLOYEES.find(str(number))
     row = EMPLOYEES.row_values(employee.row)
     employee_object = Employee(row[0], row[1], row[2], row[3], row[4])
     print(employee_object.get_employee_info())
 
+    # Actions the user can take after retrieving employee info.
     action = input("""
     Back to search (ANY KEY)
     Delete (DEL)
@@ -136,12 +149,19 @@ def get_employee(number):
         print("Employee information updated successfully.")
 
 
+"""
+    Removes employee info from google sheet.
+"""
 def remove_employee(number):
     for employee in SHEET:
         if employee.number == number:
             EMPLOYEES.delete_rows(employee)
 
 
+"""
+    Lists all employees on google sheet using basic info function
+    in Employee class.
+"""
 def list_employees():
     employees_list = EMPLOYEES.get_all_values()
     for employee in employees_list:
@@ -149,7 +169,9 @@ def list_employees():
         employee[2], employee[3], employee[4])
         print(employee_object.get_basic_info())
 
-
+"""
+    Executes the main program.
+"""
 def main():
     while True:
         print("""
