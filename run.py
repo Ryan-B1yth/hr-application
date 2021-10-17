@@ -46,7 +46,9 @@ class Employee:
             Date added: {get_datetime()}
             """
         )
-
+    """
+        Only show basic info during an all employees search.
+    """
     def get_basic_info(self):
         return (
             f"""
