@@ -13,7 +13,7 @@ In this theoretical company, employees added to the system are randomly generate
 
 ### User Stories           
 - First time visitor goals:
-  - To be able to intuitively navigate the program and complete tasks easily and quickely.
+  - To be able to intuitively navigate the program and complete tasks easily and quickly.
 
 - Returning visitor goals
   - To learn how the program operates, navigate and control data faster and easier over time.
@@ -22,20 +22,20 @@ In this theoretical company, employees added to the system are randomly generate
   - To see updates to the program covering checks on email inputs, auto age complete using birthdates rather than explicit age inputs.
 
 - Site owner goals 
-  - To create a simple to use, easy to navigate program that would allow a theoretical company to process employees into a list external from the program and store data neccessary for regular company buisness needs.
+  - To create a simple to use, easy to navigate program that would allow a theoretical company to process employees into a list external from the program and store data necessary for regular company business needs.
 
 ## Features
 
 ### Existing features
 - User input at every step to walk the user through how the program operates without them having to write any complicated lines of text/code.
 
-- Preset salary brackets for 3 levels of seniority, and the option to input a different amount manually.
+- Pre-set salary brackets for 3 levels of seniority, and the option to input a different amount manually.
 
 - Two levels of employee location, basic and specific. Using the ALL command, a user can find an employee's number and use that to locate their specific information to delete or modify.
 
-### Features to be implimented 
+### Features to be implemented 
 
-- Email verification that will only add the inputed data into the sytem if it contains an '@' symbol and a '.com'.
+- Email verification that will only add the inputted data into the system if it contains an '@' symbol and a '.com'.
 
 ## Languages Used
 
@@ -53,7 +53,7 @@ In this theoretical company, employees added to the system are randomly generate
 - The Python code passes through the PEP8 linter with no major issues.
      ![PEP8 Linter](assets/images/linter.PNG) 
 
-- During development, code was written to give the correct output when the correct input was given. Once that was working, invalid inputs were fed into the program to see how it reacted. Most bugs in the code were resolved this way. Furthermore, print statements and breakpoints were used when an error was harder to resolve. 'Try, except' blocks were used for ValueErrors and displayed to the user in short, sharp explanations to convey the issue quickely.
+- During development, code was written to give the correct output when the correct input was given. Once that was working, invalid inputs were fed into the program to see how it reacted. Most bugs in the code were resolved this way. Furthermore, print statements and breakpoints were used when an error was harder to resolve. 'Try, except' blocks were used for ValueErrors and displayed to the user in short, sharp explanations to convey the issue quickly.
 
 ### Known bugs
 - The program handles invalid inputs for most instances when the user is prompted. However when updating information on a current employee, the age can be set to any input, not just an integer.
@@ -74,7 +74,7 @@ In this theoretical company, employees added to the system are randomly generate
 - A _Config Var_ called `PORT` was created and set to `8000`
 - A second _Config Var_ was created called `CREDS` and set to the contents of the JSON file.
 
-- The prject was connected to the GitHub repository and deployed.
+- The project was connected to the GitHub repository and deployed.
 <!-- Deployment taken from Code Institute Python template. -->
 
 - You can view the live site [here](https://company-hr-application.herokuapp.com/).
