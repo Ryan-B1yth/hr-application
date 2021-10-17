@@ -51,7 +51,7 @@ In this theoretical company, employees added to the system are randomly generate
 ## Testing
 
 - The Python code passes through the PEP8 linter with no major issues.
-    - [PEP8 Linter](http://pep8online.com/) 
+     ![PEP8 Linter](assets/images/linter.PNG) 
 
 - During development, code was written to give the correct output when the correct input was given. Once that was working, invalid inputs were fed into the program to see how it reacted. Most bugs in the code were resolved this way. Furthermore, print statements and breakpoints were used when an error was harder to resolve. 'Try, except' blocks were used for ValueErrors and displayed to the user in short, sharp explanations to convey the issue quickely.
 
@@ -75,8 +75,9 @@ In this theoretical company, employees added to the system are randomly generate
 - A second _Config Var_ was created called `CREDS` and set to the contents of the JSON file.
 
 - The prject was connected to the GitHub repository and deployed.
+<!-- Deployment taken from Code Institute Python template. -->
 
-- You can view the live site [here]().
+- You can view the live site [here](https://company-hr-application.herokuapp.com/).
 
 ## Credits 
 
