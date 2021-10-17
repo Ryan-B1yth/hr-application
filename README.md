@@ -45,6 +45,8 @@ In this theoretical company, employees added to the system are randomly generate
 
 - Git
 - GitHub
+- Google Sheets API
+- Google Drive API
 
 ## Testing
 
