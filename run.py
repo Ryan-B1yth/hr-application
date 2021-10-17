@@ -139,7 +139,9 @@ def get_employee(number):
         Change details (C) \n
         """).lower()
     if action == "del":
+        print("Deleting employee...")
         EMPLOYEES.delete_rows(employee.row)
+        print("Employee deleted successfully.")
     elif action == "c":
         change = input("""Change employee:
         Name (N)
@@ -162,17 +164,6 @@ def get_employee(number):
         print("Updating employee information...")
         EMPLOYEES.update_cell(int(employee.row), item, change_to)
         print("Employee information updated successfully.")
-
-
-def remove_employee(number):
-    """
-    Removes employee info from google sheet.
-    """
-    print("Deleting employee...")
-    for employee in SHEET:
-        if employee.number == number:
-            EMPLOYEES.delete_rows(employee)
-    print("Employee deleted successfully.")
 
 
 def list_employees():
